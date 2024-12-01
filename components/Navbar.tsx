@@ -9,7 +9,7 @@ function Navbar() {
     return (
         <nav>
             <div className="nav-center">
-                <h3>logo</h3>
+                <h3 className="logo">logo</h3>
                 <button
                     className="toggle-btn"
                     onClick={() => setIsSidebarOpen(!isSideBarOpen)}
