@@ -12,11 +12,15 @@ import {
 interface AppContextInterface {
     isSideBarOpen: boolean;
     setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
+    pageId: string | null;
+    setPageId: Dispatch<SetStateAction<null | string>>;
 }
 
 const AppContext = createContext<AppContextInterface>({
     isSideBarOpen: false,
     setIsSidebarOpen: () => {},
+    pageId: null,
+    setPageId: () => {},
 });
 
 interface AppProviderProps {
@@ -25,9 +29,12 @@ interface AppProviderProps {
 
 const AppProvider = ({ children }: AppProviderProps) => {
     const [isSideBarOpen, setIsSidebarOpen] = useState<boolean>(false);
+    const [pageId, setPageId] = useState<null | string>(null);
 
     return (
-        <AppContext.Provider value={{ isSideBarOpen, setIsSidebarOpen }}>
+        <AppContext.Provider
+            value={{ isSideBarOpen, setIsSidebarOpen, pageId, setPageId }}
+        >
             {children}
         </AppContext.Provider>
     );
