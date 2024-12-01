@@ -7,7 +7,7 @@ import { useAppContext } from "@/context/AppContext";
 function Sidebar() {
     const { isSideBarOpen, setIsSidebarOpen } = useAppContext();
     return (
-        <aside className="sidebar">
+        <aside className={isSideBarOpen ? "sidebar show-sidebar" : "sidebar"}>
             <div className="sidebar-container">
                 <button
                     className="close-btn"
