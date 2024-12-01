@@ -2,6 +2,7 @@
 
 import { FaBars } from "react-icons/fa";
 import { useAppContext } from "@/context/AppContext";
+import NavLinks from "./NavLinks";
 
 function Navbar() {
     const { isSideBarOpen, setIsSidebarOpen } = useAppContext();
@@ -17,6 +18,7 @@ function Navbar() {
                     <FaBars />
                 </button>
                 {/* nav links */}
+                <NavLinks />
             </div>
         </nav>
     );
