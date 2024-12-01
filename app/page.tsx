@@ -1,21 +1,20 @@
 "use client";
 
-import { useAppContext } from "@/context/AppContext";
+// import { useAppContext } from "@/context/AppContext";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Submenu from "@/components/Submenu";
+import Sidebar from "@/components/Sidebar";
 
 export default function Home() {
-    const { isSideBarOpen, setIsSidebarOpen } = useAppContext();
+    // const { isSideBarOpen, setIsSidebarOpen } = useAppContext();
 
     return (
-        <div>
-            <h1>Sidebar is open: {isSideBarOpen ? "true" : "false"}</h1>
-            <button
-                className="btn"
-                onClick={() => {
-                    setIsSidebarOpen(!isSideBarOpen);
-                }}
-            >
-                toggle
-            </button>
-        </div>
+        <main>
+            <Navbar />
+            <Hero />
+            <Sidebar />
+            <Submenu />
+        </main>
     );
 }
