@@ -431,13 +431,15 @@ Nav Links
     .nav-links {
         display: flex;
         justify-content: center;
-        border: 2px solid red;
+        /* border: 2px solid red; */
+        align-self: stretch;
     }
 
     .nav-center {
         display: grid;
         grid-template-columns: auto 1fr;
-        border: 2px solid blue;
+        /* border: 2px solid blue; */
+        align-self: stretch;
     }
 
     .nav-link {
@@ -445,7 +447,7 @@ Nav Links
         color: var(--white);
         background: transparent;
         border-color: transparent;
-        border: 2px solid orange;
+        /* border: 2px solid orange; */
         font-size: 1.25rem;
         text-transform: capitalize;
         letter-spacing: var(--letterSpacing);
@@ -465,7 +467,7 @@ Submenu
     .submenu {
         display: block;
         position: fixed;
-        top: 6rem;
+        top: 4.78rem;
         left: 50%;
         border-radius: var(--borderRadius);
         width: var(--fluid-width);
