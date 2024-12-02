@@ -3,22 +3,41 @@
 import sublinks from "@/data";
 import { PageType } from "@/types";
 import { useAppContext } from "@/context/AppContext";
+import { MouseEvent, useRef } from "react";
 
 function Submenu() {
-    const { pageId } = useAppContext();
+    const { pageId, setPageId } = useAppContext();
 
     const currentPage: PageType | undefined = sublinks.find(
         (item) => item.pageId === pageId
     );
 
-    console.log(currentPage);
+    const submenuContainer = useRef<HTMLDivElement>(null);
+
+    const handleMouseLeave = (e: MouseEvent<HTMLElement>) => {
+        const submenu = submenuContainer.current;
+
+        if (!submenu) return;
+
+        const { left, right, bottom } = submenu.getBoundingClientRect();
+
+        const { clientX, clientY } = e;
+
+        if (clientX < left || clientX > right - 1 || clientY > bottom - 1) {
+            setPageId(null);
+        }
+    };
 
     if (!currentPage) {
-        return;
+        return null;
     }
 
     return (
-        <div className={currentPage ? "submenu show-submenu" : "submenu"}>
+        <div
+            onMouseMove={handleMouseLeave}
+            className={currentPage ? "submenu show-submenu" : "submenu"}
+            ref={submenuContainer}
+        >
             <h5>{currentPage?.page}</h5>
             <div
                 className="submenu-links"
