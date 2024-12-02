@@ -23,7 +23,7 @@ function Submenu() {
 
         const { clientX, clientY } = e;
 
-        if (clientX < left || clientX > right - 1 || clientY > bottom - 1) {
+        if (clientX < left + 3 || clientX > right - 3 || clientY > bottom - 3) {
             setPageId(null);
         }
     };
